@@ -10,82 +10,107 @@
   <div class="main" id="main-doc">
 
     <!-- Section 1-->
-    <section class="main-section" id="ummary">
+    <section class="main-section" id="introduction">
       <header >
-        Summary of Recent Changes and Updates
+        Introduction
       </header>
-      Webpage content and individual PDFs are updated when there’s new guidance concerning the Moderna COVID-19 vaccine. Expand each section below to see a summary of new and updated items spanning the past month.
-      <br />
-      Updates on 8/23/2021
-      <br />
-      Moderna materials have been updated to include the updated Interim Clinical Considerations for the Use of COVID-19 Vaccines Currently Authorized in the United States posted on August 13, 2021.
-      Updates on 5/15/2021
-      <br />
-      Moderna materials have been updated to include the Interim Clinical Considerations for the Use of COVID-19 Vaccines Currently Authorized in the United States from May 14, 2021.
-
+      <p>
+        Welcome to your complete guide to documenting Python code. Whether you’re documenting a small script or a large project, whether you’re a beginner or a seasoned Pythonista, this guide will cover everything you need to know.
+      </p>
     </section>
     <!-- End of Section 1-->
 
 
 
     <!-- Section 2-->
-    <section class="main-section" id="general_information">
+    <section class="main-section" id="why_documenting">
       <header>
-        General Vaccine Information
+        Why Documenting Your Code Is So Important
       </header>
 
-      Vaccine: Moderna COVID-19 Vaccine
-      Multidose vial: maximum of 15 doses per vial
-      <br />
-      Dosage: 0.5 mL
-      <br />
-      Do NOT mix with a diluent.
-      <br />
-      Discard vial when there is not enough vaccine to obtain a complete dose. Do NOT combine residual vaccine from multiple vials to obtain a dose.
-      <br />
-      18 years of age and older
-      <br />
-      2-dose series separated by 28 days*
-      <br />
-      A series started with COVID-19 vaccine (Moderna) should be completed with this product.
-      <br />
-      * Moderately to severely immunocompromised people:  Consider an additional dose at least 28 days after the initial 2-dose primary series.
-      <br />
-      Intramuscular (IM) injection in the deltoid muscle
+      Hopefully, if you’re reading this tutorial, you already know the importance of documenting your code. But if not, then let me quote something Guido mentioned to me at a recent PyCon:
+
+      <p>
+        When you write code, you write it for two primary audiences: your users and your developers (including yourself). Both audiences are equally important. If you’re like me, you’ve probably opened up old codebases and wondered to yourself, “What in the world was I thinking?” If you’re having a problem reading your own code, imagine what your users or other developers are experiencing when they’re trying to use or contribute to your code.
+      </p>
     </section>
     <!-- End of Section 2-->
 
 
 
     <!-- Section 3-->
-    <section class="main-section" id="administration">
+    <section class="main-section" id="commenting_vs_documenting">
       <header>
-        Administration Overview
+        Commenting vs Documenting Code
       </header>
-      Before administering vaccine, screen recipients for contraindications and precautions, even if the recipient is scheduled to receive the second dose. The recipient’s health condition or recommendations regarding contraindications and precautions for vaccination may change from one visit to the next.
-      <br />
-      To assess patients correctly and consistently, vaccination providers should use a standardized, comprehensive screening tool.
+      <p>In general, commenting is describing your code to/for developers. The intended main audience is the maintainers and developers of the Python code. In conjunction with well-written code, comments help to guide the reader to better understand your code and its purpose and design:</p>
+
+      <p>Documenting code is describing its use and functionality to your users. While it may be helpful in the development process, the main intended audience is the users. The following section describes how and when to comment your code.</p>
+
+      <h3>Basics of Commenting Code</h3>
+      <p>Comments are created in Python using the pound sign (#) and should be brief statements no longer than a few sentences. Here’s a simple example:</p>
+
+      <p>Comments to your code should be kept brief and focused. Avoid using long comments when possible. Additionally, you should use the following four essential rules as suggested by Jeff Atwood:</p>
+
+      <code>
+        def hello_world():
+        # A simple comment preceding a simple print statement
+        print("Hello World")
+      </code>
+
+      <ul>
+        <li>
+          Keep comments as close to the code being described as possible. Comments that aren’t near their describing code are frustrating to the reader and easily missed when updates are made.
+
+        </li>
+
+        <li>
+          Don’t use complex formatting (such as tables or ASCII figures). Complex formatting leads to distracting content and can be difficult to maintain over time.
+
+        </li>
+
+        <li>
+          Don’t include redundant information. Assume the reader of the code has a basic understanding of programming principles and language syntax.
+
+        </li>
+
+        <li>
+          Design your code to comment itself. The easiest way to understand code is by reading it. When you design your code using clear, easy-to-understand concepts, the reader will be able to quickly conceptualize your intent.
+        </li>
+
+        <li>
+          Remember that comments are designed for the reader, including yourself, to help guide them in understanding the purpose and design of the software.
+
+        </li>
+      </ul>
+
+
+
+
 
     </section>
     <!-- End of Section 3-->
 
 
     <!-- Section 4-->
-    <section class="main-section" id="storage">
+    <section class="main-section" id="commenting">
       <header>
-        Storage and Handling Overview
+        Commenting Code via Type Hinting (Python 3.5+)
       </header>
-      <ul>
-        <li>
-          Vaccine will arrive frozen between -50°C and -15°C (-58°F and 5°F).
-        </li>
-        <li>
-          An ancillary supply kit will arrive separately from the vaccine.
-        </li>
-        <li>
-          Unpack the vaccine shipment following the manufacturer’s directions.
-        </li>
-      </ul>
+
+      <p>
+        Type hinting was added to Python 3.5 and is an additional form to help the readers of your code. In fact, it takes Jeff’s fourth suggestion from above to the next level. It allows the developer to design and explain portions of their code without commenting. Here’s a quick example:
+      </p>
+
+      <code>
+        def hello_name(name: str) -> str:
+        return(f"Hello {name}")
+      </code>
+
+
+      <p>
+        From examining the type hinting, you can immediately tell that the function expects the input name to be of a type str, or string. You can also tell that the expected output of the function will be of a type str, or string, as well. While type hinting helps reduce comments, take into consideration that doing so may also make extra work when you are creating or updating your project documentation.
+      </p>
 
 
 
@@ -96,15 +121,48 @@
 
 
     <!-- Section 5-->
-    <section class="main-section" id="documentation">
+    <section class="main-section" id="documenting">
       <header>
-        Document the Vaccination
+        Documenting Your Python Code Base Using Docstrings
       </header>
       <p>
 
-        COVID-19 vaccination providers must document vaccine administration in their medical record systems within 24 hours of administration and use their best efforts to report administration data to the relevant system for the jurisdiction (i.e., immunization information system) as soon as practicable and no later than 72 hours after administration.
+        Now that we’ve learned about commenting, let’s take a deep dive into documenting a Python code base. In this section, you’ll learn about docstrings and how to use them for documentation. This section is further divided into the following sub-sections:
 
       </p>
+
+      <li>Docstrings Background: A background on how docstrings work internally within Python</li>
+      <li>Docstring Types: The various docstring “types” (function, class, class method, module, package, and script)</li>
+      <li>Docstring Formats: The different docstring “formats” (Google, NumPy/SciPy, reStructured Text, and Epytext)</li>
+
+      <p>How is this output generated? Since everything in Python is an object, you can examine the directory of the object using the dir() command. Let’s do that and see what find:</p>
+      <code>
+        >>> dir(str)
+        ['__add__', ..., '__doc__', ..., 'zfill'] # Truncated for readability
+      </code>
+
+
+      <p>Any other custom object can be manipulated:</p>
+      <code>
+        def say_hello(name):
+        print(f"Hello {name}, is it me you're looking for?")
+
+        say_hello.__doc__ = "A simple function that says hello... Richie style"
+      </code>
+
+      <p>Python has one more feature that simplifies docstring creation. Instead of directly manipulating the __doc__ property, the strategic placement of the string literal directly below the object will automatically set the __doc__ value. Here’s what happens with the same example as above:</p>
+
+      <code>
+        def say_hello(name):
+        """A simple function that says hello... Richie style"""
+        print(f"Hello {name}, is it me you're looking for?")
+      </code>
+
+      
+      <code>
+      >>> help(say_hello)
+      </code>
+
     </section>
     <!-- End of Section 1-->
 
